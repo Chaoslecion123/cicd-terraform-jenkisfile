@@ -5,3 +5,6 @@
 # BUILD
 
 # DEPLOY
+
+
+# sudo amazon-linux-extras install java-openjdk11
