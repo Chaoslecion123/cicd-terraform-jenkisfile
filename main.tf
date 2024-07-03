@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "example" {
 }
 
 
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "example2" {
   bucket = "my-tf-test-bucketf6"
 
   tags = {
