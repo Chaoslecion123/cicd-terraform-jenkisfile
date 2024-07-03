@@ -14,18 +14,28 @@ node ('terraform'){
             // bat 'dir' when windows
         }
 
-        stage('Init'){
-            sh 'terraform init'
+        withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: "aws_credentials",
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        ]]) {
+            // AWS Code
+            
+            stage('Init'){
+                sh 'terraform init'
+            }
+
+            stage('Validate'){
+                sh 'terraform fmt'
+                sh 'terraform validate'
+            }
+
+            stage('Plan'){
+                sh 'terraform plan -out=tfplan'
+            }
         }
 
-        stage('Validate'){
-            sh 'terraform fmt'
-            sh 'terraform validate'
-        }
-
-        stage('Plan'){
-            sh 'terraform plan -out=tfplan'
-        }
         
         
     }catch(caughtError) {
