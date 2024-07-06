@@ -34,6 +34,12 @@ node ('terraform'){
             stage('Plan'){
                 sh 'terraform plan -out=tfplan'
             }
+
+            stage('Apply') {
+                when(BRANCH_NAME == 'main'){
+                    sh 'terraform apply tfplan'
+                }
+            }
         }
 
         
