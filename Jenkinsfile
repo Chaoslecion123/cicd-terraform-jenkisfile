@@ -11,7 +11,7 @@ node ('terraform'){
             url: 'https://github.com/Chaoslecion123/cicd-terraform-jenkisfile.git'
             ]])
             sh 'ls -l'
-            echo gitscmvar
+            echo "${gitscmvar}"
             // bat 'dir' when windows
         }
 
