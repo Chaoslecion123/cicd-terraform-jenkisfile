@@ -27,7 +27,6 @@ jobs:
         echo $PATH
         env | sort
         aws --version
-        echo $secrets
 
     - name: Init
       run: |
