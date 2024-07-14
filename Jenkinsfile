@@ -3,9 +3,10 @@
 node ('terraform'){
     err = null
     try {
+        echo "${params}"
         stage('Checkout'){
             gitscmvar=checkout scmGit(
-            branches: [[name: '*/main']], 
+            branches: [[name: params.branch_name]], 
             extensions: [], 
             userRemoteConfigs: [[credentialsId: 'git-token', 
             url: 'https://github.com/Chaoslecion123/cicd-terraform-jenkisfile.git'
