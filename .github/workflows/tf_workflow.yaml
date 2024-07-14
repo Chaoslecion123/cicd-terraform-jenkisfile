@@ -27,7 +27,7 @@ jobs:
         echo $PATH
         env | sort
         aws --version
-        echo $secrets.AWS_ACESS_KEY_ID
+        echo $secrets
 
     - name: Init
       run: |
